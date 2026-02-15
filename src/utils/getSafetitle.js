@@ -1,9 +1,12 @@
 export default function getSafeTitle(title, language = 'EN', jpTitle = '') {
-  if (!title) return '';
-  
+  if (!title) return jpTitle || '';
+
+  // Handle language preference
+  if (language === 'JP' && jpTitle) return jpTitle;
+
   // If title is already a string, return it
   if (typeof title === 'string') return title;
-  
+
   // If title is an object, extract based on language preference
   if (typeof title === 'object') {
     if (language === 'EN') {
@@ -13,6 +16,6 @@ export default function getSafeTitle(title, language = 'EN', jpTitle = '') {
       return title.native || title.romaji || title.userPreferred || title.english || jpTitle || 'Unknown Title';
     }
   }
-  
-  return 'Unknown Title';
+
+  return jpTitle || 'Unknown Title';
 }
