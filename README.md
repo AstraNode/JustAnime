@@ -1,6 +1,6 @@
 <p align="center">
   <div align="center">
-    <a href="https://justanime.to">
+    <a href="https://justanime.fun">
       <img alt="JustAnime" src="https://github.com/tejaspanchall/JustAnime/blob/main/public/footer.png" width="220"/>
     </a>
   </div>
@@ -16,7 +16,7 @@
 </p>
 </p>
 <p align="center">
-    <a href="https://justanime.to">JustAnime</a> is an open-source anime streaming service that uses <a href="https://github.com/itzzzme/anime-api">ANIME</a> API, built using ReactJS with javascript and Tailwind CSS. It lets you easily find any anime with intuitive search & suggestion feature and stream without any ads.
+    <a href="https://justanime.fun">JustAnime</a> is an open-source anime streaming service that uses <a href="https://github.com/itzzzme/anime-api">ANIME</a> API, built using ReactJS with javascript and Tailwind CSS. It lets you easily find any anime with intuitive search & suggestion feature and stream without any ads.
  </p>
 
 <p align="center">
@@ -92,13 +92,13 @@ npm start # or npm run dev (to run develepment server)
 
 ### Vercel
 
-Host your own instance of <a href="https://justanime.to">JustAnime</a>  on vercel
+Host your own instance of <a href="https://justanime.fun">JustAnime</a>  on vercel
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tejaspanchall/JustAnime)
 
 ### Render
 
-Host your own instance of <a href="https://justanime.to">JustAnime</a> on Render.
+Host your own instance of <a href="https://justanime.fun">JustAnime</a> on Render.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/tejaspanchall/JustAnime)
 
