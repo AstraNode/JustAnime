@@ -6,18 +6,15 @@ function Genre({ data }) {
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300;
       scrollContainerRef.current.scrollBy({
-        left: scrollAmount,
+        left: direction === 'left' ? -300 : 300,
         behavior: 'smooth'
       });
     }
   };
 
-  // Instant scroll on mount without animation
   useEffect(() => {
     if (scrollContainerRef.current) {
-      // Direct manipulation of scrollLeft for instant scroll
       scrollContainerRef.current.scrollLeft = 300;
     }
   }, []);

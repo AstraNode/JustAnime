@@ -20,13 +20,10 @@ import {
 
 function Home() {
   const { homeInfo, homeInfoLoading, error } = useHomeInfo();
-  const [itemLimit, setItemLimit] = useState(window.innerWidth > 1400 ? 10 : 12);
+  const [itemLimit, setItemLimit] = useState(() => (window.innerWidth > 1400 ? 10 : 12));
 
   useEffect(() => {
-    const handleResize = () => {
-      setItemLimit(window.innerWidth > 1400 ? 10 : 12);
-    };
-
+    const handleResize = () => setItemLimit(window.innerWidth > 1400 ? 10 : 12);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

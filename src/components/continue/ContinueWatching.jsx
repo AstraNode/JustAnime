@@ -18,22 +18,20 @@ const ContinueWatching = () => {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("continueWatching") || "[]");
-    setWatchList(data);
+    setWatchList(data.reverse());
   }, []);
-
-  const memoizedWatchList = useMemo(() => watchList, [watchList]);
 
   const removeFromWatchList = (episodeId) => {
     setWatchList((prevList) => {
       const updatedList = prevList.filter(
         (item) => item.episodeId !== episodeId
       );
-      localStorage.setItem("continueWatching", JSON.stringify(updatedList));
+      localStorage.setItem("continueWatching", JSON.stringify([...updatedList].reverse()));
       return updatedList;
     });
   };
 
-  if (memoizedWatchList.length === 0) return null;
+  if (watchList.length === 0) return null;
 
   return (
     <div className="mt-8">
@@ -74,7 +72,7 @@ const ContinueWatching = () => {
             prevEl: ".continue-btn-prev",
           }}
         >
-          {memoizedWatchList.slice().reverse().map((item, index) => (
+          {watchList.map((item, index) => (
             <SwiperSlide
               key={index}
               className="text-center flex justify-center items-center"
