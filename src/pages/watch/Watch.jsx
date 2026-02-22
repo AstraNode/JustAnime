@@ -289,7 +289,7 @@ export default function Watch() {
               </div>
 
               {/* Episode List (Mobile only) */}
-              <div className="hidden max-[1200px]:block bg-[#141414] rounded-xl overflow-hidden shadow-lg border border-white/5">
+              <div className="hidden max-[1200px]:block w-full bg-[#141414] rounded-xl overflow-hidden shadow-lg border border-white/5">
                 {!episodes ? (
                   <div className="flex-1 flex items-center justify-center min-h-[300px]">
                     <BouncingLoader />
@@ -354,7 +354,7 @@ export default function Watch() {
 
               {/* Seasons (Mobile only) */}
               {seasons?.length > 0 && (
-                <div className="hidden max-[1200px]:block bg-[#141414] rounded-xl p-4 shadow-lg border border-white/5">
+                <div className="hidden max-[1200px]:block w-full bg-[#141414] rounded-xl p-4 shadow-lg border border-white/5">
                   <h2 className="text-lg font-bold mb-4 text-white">More Seasons</h2>
                   <div className="grid grid-cols-2 gap-3">
                     {seasons.map((season, idx) => (
@@ -371,6 +371,14 @@ export default function Watch() {
                       </Link>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* Related Anime (Mobile only) */}
+              {!animeInfoLoading && animeInfo?.related_data?.length > 0 && (
+                <div className="hidden max-[1200px]:block w-full bg-[#141414] rounded-xl p-4 shadow-lg border border-white/5">
+                  <h2 className="text-lg font-bold mb-4 text-white">Related Anime</h2>
+                  <Sidecard data={animeInfo.related_data} className="!mt-0" />
                 </div>
               )}
             </div>
@@ -399,13 +407,7 @@ export default function Watch() {
               )}
             </div>
 
-            {/* Related Anime (Mobile only) */}
-            {!animeInfoLoading && animeInfo?.related_data?.length > 0 && (
-              <div className="hidden max-[1200px]:block bg-[#141414] rounded-xl p-4 shadow-lg border border-white/5">
-                <h2 className="text-lg font-bold mb-4 text-white">Related Anime</h2>
-                <Sidecard data={animeInfo.related_data} className="!mt-0" />
-              </div>
-            )}
+
           </div>
         </div>
       </div>
