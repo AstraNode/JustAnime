@@ -288,6 +288,22 @@ export default function Watch() {
                 </div>
               </div>
 
+              {/* Episode List (Mobile only) */}
+              <div className="hidden max-[1200px]:block bg-[#141414] rounded-xl overflow-hidden shadow-lg border border-white/5">
+                {!episodes ? (
+                  <div className="flex-1 flex items-center justify-center min-h-[300px]">
+                    <BouncingLoader />
+                  </div>
+                ) : (
+                  <Episodelist
+                    episodes={episodes}
+                    currentEpisode={episodeId}
+                    onEpisodeClick={setEpisodeId}
+                    totalEpisodes={totalEpisodes}
+                  />
+                )}
+              </div>
+
               {/* Info Section */}
               <div className="bg-[#141414] rounded-xl p-4 lg:p-6 shadow-lg border border-white/5">
                 <div className="flex gap-4 sm:gap-6 flex-col sm:flex-row">
