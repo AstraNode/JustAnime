@@ -4,7 +4,7 @@
       <img alt="JustAnime" src="https://github.com/tejaspanchall/JustAnime/blob/main/public/footer.png" width="220"/>
     </a>
   </div>
-    <h3 align="center">JustAnime - Clean & ad free anime streaming</h3>
+    <h3 align="center">JustAnime - Clean anime streaming platform</h3>
     <p align="center">
   <a href="https://github.com/tejaspanchall/JustAnime">
       <img src="https://img.shields.io/github/stars/tejaspanchall/JustAnime" alt="Github Stars">
@@ -92,13 +92,13 @@ npm start # or npm run dev (to run develepment server)
 
 ### Vercel
 
-Host your own instance of <a href="https://justanime.to">JustAnime</a>  on vercel
+Host your own instance of <a href="https://justanime.fun">JustAnime</a>  on vercel
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tejaspanchall/JustAnime)
 
 ### Render
 
-Host your own instance of <a href="https://justanime.to">JustAnime</a> on Render.
+Host your own instance of <a href="https://justanime.fun">JustAnime</a> on Render.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/tejaspanchall/JustAnime)
 
