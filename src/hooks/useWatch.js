@@ -136,27 +136,7 @@ export const useWatch = (animeId, initialEpisodeId) => {
 
         let serversList = [...filteredServers];
 
-        if (serversList.some((s) => s.type === "sub")) {
-          if (!serversList.some((s) => s.serverName === "HD-4" && s.type === "sub")) {
-            serversList.push({
-              type: "sub",
-              data_id: "69696968",
-              server_id: "41",
-              serverName: "HD-4",
-            });
-          }
-        }
 
-        if (serversList.some((s) => s.type === "dub")) {
-          if (!serversList.some((s) => s.serverName === "HD-4" && s.type === "dub")) {
-            serversList.push({
-              type: "dub",
-              data_id: "96969696",
-              server_id: "42",
-              serverName: "HD-4",
-            });
-          }
-        }
 
         const savedServerName = localStorage.getItem("server_name");
         const savedServerType = localStorage.getItem("server_type");
@@ -199,6 +179,15 @@ export const useWatch = (animeId, initialEpisodeId) => {
     };
   }, [episodeId, episodes]);
 
+  useEffect(() => {
+    if (!servers || !activeServerId) return;
+    const activeServer = servers.find((s) => s.data_id === activeServerId);
+    if (activeServer) {
+      setActiveServerName(activeServer.serverName);
+      setActiveServerType(activeServer.type);
+    }
+  }, [activeServerId, servers]);
+
   // Fetch stream info only when episodeId, activeServerId, and servers are ready
   useEffect(() => {
     if (
@@ -229,15 +218,15 @@ export const useWatch = (animeId, initialEpisodeId) => {
             server.type.toLowerCase()
           );
           setStreamInfo(data);
-          setStreamUrl(data?.streamingLink?.link?.file || null);
-          setIntro(data?.streamingLink?.intro || null);
-          setOutro(data?.streamingLink?.outro || null);
+          setStreamUrl(data?.streamingLink?.[0]?.link || null);
+          setIntro(data?.intro || null);
+          setOutro(data?.outro || null);
           const subtitles =
-            data?.streamingLink?.tracks
+            data?.tracks
               ?.filter((track) => track.kind === "captions")
-              .map(({ file, label }) => ({ file, label })) || [];
+              .map(({ file, label, default: isDefault }) => ({ file, label, default: isDefault })) || [];
           setSubtitles(subtitles);
-          const thumbnailTrack = data?.streamingLink?.tracks?.find(
+          const thumbnailTrack = data?.tracks?.find(
             (track) => track.kind === "thumbnails" && track.file
           );
           if (thumbnailTrack) setThumbnail(thumbnailTrack.file);
